@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "mcp-client-test-poetry"
+version = "0.1.0"
+description = ""
+authors = ["Kunio Yoshikawa <kunio-yoshikawa@fsdg.co.jp>"]
+readme = "README.md"
+packages = [
+    { include = "mcp_filesystem", from = "src" },
+    { include = "mcp_openai", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^1.57.0"
+mcp = "1.1.0"
+python-dotenv = "^1.0.1"
+aiofiles = "^23.2.1"
+watchfiles = "^0.21.0"
+
+[tool.poetry.scripts]
+mcp-filesystem = "mcp_filesystem.cli:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

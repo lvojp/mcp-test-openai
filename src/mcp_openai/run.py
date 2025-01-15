@@ -1,5 +1,6 @@
 import asyncio
 import os
+import sys
 from mcp import StdioServerParameters
 from openai_agent import OpenAIAgent
 from openai_tools import OpenAIToolManager
@@ -15,9 +16,14 @@ async def main():
     agent.system_prompt = """You are a helpful assistant that can use tools to help you answer 
 questions and perform tasks. If you need to use a tool, respond with a JSON containing "toolUse" field."""
 
+    # server_params = StdioServerParameters(
+    #     command="uvx",
+    #     args=["mcp-server-sqlite", "--db-path", "~/test.db"],
+    #     env=None
+    # )
     server_params = StdioServerParameters(
-        command="uvx",
-        args=["mcp-server-sqlite", "--db-path", "~/test.db"],
+        command=sys.executable,
+        args=["-c", "import mcp_server_sqlite; mcp_server_sqlite.main()", "--db-path", "~/test.db"],
         env=None
     )
 

@@ -16,6 +16,7 @@ python-dotenv = "^1.0.1"
 aiofiles = "^23.2.1"
 watchfiles = "^0.21.0"
 mcp-server-sqlite = "^2025.1.14"
+mcp-server-fetch = "^2025.1.14"
 
 [build-system]
 requires = ["poetry-core"]
